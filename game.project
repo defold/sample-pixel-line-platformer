@@ -1,5 +1,5 @@
 [project]
-title = Platformer
+title = PixelLinePlatformer
 
 [bootstrap]
 main_collection = /game/game.collectionc
