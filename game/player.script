@@ -42,6 +42,8 @@ function init(self)
 	-- this will send camera updates to the render script
 	msg.post("camera", "acquire_camera_focus")
 
+	-- spawn position
+	self.spawn_position = go.get_position()
 	-- player velocity
 	self.velocity = vmath.vector3(0, 0, 0)
 	-- which direction the player is facing
@@ -189,7 +191,7 @@ function on_message(self, message_id, message, sender)
 		if message.group == GROUND then
 			handle_obstacle_contact(self, message.normal, message.distance)
 		elseif message.group == RESPAWMN or message.group == ENEMY then
-			sys.reboot()
+			go.set_position(self.spawn_position)
 		end
 	end
 end
