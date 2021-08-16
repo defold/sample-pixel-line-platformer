@@ -41,5 +41,12 @@ shared_state = 1
 
 [physics]
 gravity_y = -1000.0
-scale = 0.01
+scale = 0.1
+
+[graphics]
+default_texture_min_filter = nearest
+default_texture_mag_filter = nearest
+
+[sprite]
+max_count = 500
 

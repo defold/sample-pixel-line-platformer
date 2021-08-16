@@ -1,0 +1,43 @@
+go.property("distance", 50)
+
+local SPEED = 10
+local DEAD_SPEED = 200
+
+local COLLISION_RESPONSE = hash("collision_response")
+local BULLET = hash("bullet")
+
+function init(self)
+	-- move back and forth
+	local pos = go.get_position()
+	local to = pos.x + self.distance
+	local duration = self.distance / SPEED
+	go.animate(".", "position.x", go.PLAYBACK_LOOP_PINGPONG, to, go.EASING_LINEAR, duration)
+
+	-- flip sprite
+	local flip = false
+	timer.delay(duration / 2, true, function()
+		flip = not flip
+		sprite.set_hflip("#sprite", flip)
+	end)
+end
+
+function on_message(self, message_id, message, sender)
+	if self.dead then return end
+	if message_id == COLLISION_RESPONSE then
+		if message.other_group == BULLET then
+			-- remove the bullet
+			go.delete(message.other_id)
+
+			-- turn upside down and make it drop dead!
+			-- also flag it as dead and ignore any additional messages
+			self.dead = true
+			sprite.set_vflip("#sprite", true)
+			local pos = go.get_position()
+			local duration = pos.y / DEAD_SPEED
+			go.cancel_animations(".", "position.x")
+			go.animate(".", "position.y", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_INQUAD, duration, 0, function()
+				go.delete()
+			end)
+		end
+	end
+end
