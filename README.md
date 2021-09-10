@@ -1,6 +1,8 @@
 # Pixel Line Platformer sample
 Defold sample project for a platformer game.
 
+![](/docs/screenshot.png)
+
 # Demo
 Try the HTML5 demo here: https://defold.com/sample-pixel-line-platformer/
 
