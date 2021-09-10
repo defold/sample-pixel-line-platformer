@@ -97,7 +97,7 @@ embedded_instances {
   "  shapes {\\n"
   "    shape_type: TYPE_SPHERE\\n"
   "    position {\\n"
-  "      x: -5.0\\n"
+  "      x: -4.0\\n"
   "      y: -4.0\\n"
   "      z: 0.0\\n"
   "    }\\n"
