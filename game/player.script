@@ -142,8 +142,22 @@ function update(self, dt)
 	self.wall_contact = false
 end
 
+local NORMAL_THRESHOLD = 0.8
+
 -- https://defold.com/manuals/physics/#resolving-kinematic-collisions
 local function handle_obstacle_contact(self, normal, distance)
+	-- don't care about anything but normals beyond the threshold
+	-- we do this to eliminate false-positives such as ceiling hits when
+	-- jumping next to a wall while moving into the wall
+	if normal.y < NORMAL_THRESHOLD and normal.y > -NORMAL_THRESHOLD then
+		normal.y = 0
+	end
+	if normal.x < NORMAL_THRESHOLD and normal.x > -NORMAL_THRESHOLD then
+		normal.x = 0
+	end
+	-- update distance in case the normals have changed
+	distance = distance * vmath.length(normal)
+	
 	if distance > 0 then
 		-- First, project the accumulated correction onto
 		-- the penetration vector
@@ -160,13 +174,13 @@ local function handle_obstacle_contact(self, normal, distance)
 
 	-- collided with a wall
 	-- stop horizontal movement
-	if math.abs(normal.x) > 0.7 then
+	if math.abs(normal.x) > NORMAL_THRESHOLD then
 		self.wall_contact = true
 		self.velocity.x = 0
 	end
 	-- collided with the ground
 	-- stop vertical movement
-	if normal.y > 0.7 then
+	if normal.y > NORMAL_THRESHOLD then
 		if not self.previous_ground_contact then
 			-- add some particles 
 			particlefx.play("#dust")
@@ -179,7 +193,7 @@ local function handle_obstacle_contact(self, normal, distance)
 	end
 	-- collided with the ceiling
 	-- stop vertical movement
-	if normal.y < -0.7 then
+	if normal.y < -NORMAL_THRESHOLD then
 		self.velocity.y = 0
 	end
 end
