@@ -142,7 +142,7 @@ function update(self, dt)
 	self.wall_contact = false
 end
 
-local NORMAL_THRESHOLD = 0.8
+local NORMAL_THRESHOLD = 0.7
 
 -- https://defold.com/manuals/physics/#resolving-kinematic-collisions
 local function handle_obstacle_contact(self, normal, distance)
