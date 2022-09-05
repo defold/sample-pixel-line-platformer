@@ -14,3 +14,27 @@ key_trigger {
   input: KEY_X
   action: "fire"
 }
+gamepad_trigger {
+  input: GAMEPAD_LSTICK_LEFT
+  action: "left"
+}
+gamepad_trigger {
+  input: GAMEPAD_LSTICK_RIGHT
+  action: "right"
+}
+gamepad_trigger {
+  input: GAMEPAD_RPAD_LEFT
+  action: "fire"
+}
+gamepad_trigger {
+  input: GAMEPAD_RPAD_UP
+  action: "jump"
+}
+gamepad_trigger {
+  input: GAMEPAD_LPAD_LEFT
+  action: "left"
+}
+gamepad_trigger {
+  input: GAMEPAD_LPAD_RIGHT
+  action: "right"
+}
