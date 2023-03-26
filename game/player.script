@@ -40,7 +40,8 @@ function init(self)
 
 	-- activate camera attached to the player collection
 	-- this will send camera updates to the render script
-	msg.post("camera", "acquire_camera_focus")
+	msg.post("#camera", "acquire_camera_focus")
+	msg.post("@render:", "use_camera_projection")
 
 	-- spawn position
 	self.spawn_position = go.get_position()

@@ -2,7 +2,6 @@ name: "default"
 scale_along_z: 0
 embedded_instances {
   id: "player"
-  children: "camera"
   children: "visuals"
   data: "components {\n"
   "  id: \"player\"\n"
@@ -17,6 +16,8 @@ embedded_instances {
   "    y: 0.0\n"
   "    z: 0.0\n"
   "    w: 1.0\n"
+  "  }\n"
+  "  property_decls {\n"
   "  }\n"
   "}\n"
   "components {\n"
@@ -33,6 +34,8 @@ embedded_instances {
   "    z: 0.0\n"
   "    w: 1.0\n"
   "  }\n"
+  "  property_decls {\n"
+  "  }\n"
   "}\n"
   "components {\n"
   "  id: \"dust\"\n"
@@ -47,6 +50,8 @@ embedded_instances {
   "    y: 0.0\n"
   "    z: 0.0\n"
   "    w: 1.0\n"
+  "  }\n"
+  "  property_decls {\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
@@ -117,6 +122,7 @@ embedded_instances {
   "linear_damping: 0.0\\n"
   "angular_damping: 0.0\\n"
   "locked_rotation: false\\n"
+  "bullet: false\\n"
   "\"\n"
   "  position {\n"
   "    x: 0.0\n"
@@ -135,6 +141,7 @@ embedded_instances {
   "  type: \"factory\"\n"
   "  data: \"prototype: \\\"/game/bullet.go\\\"\\n"
   "load_dynamically: false\\n"
+  "dynamic_prototype: false\\n"
   "\"\n"
   "  position {\n"
   "    x: 0.0\n"
@@ -148,34 +155,16 @@ embedded_instances {
   "    w: 1.0\n"
   "  }\n"
   "}\n"
-  ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-embedded_instances {
-  id: "camera"
-  data: "embedded_components {\n"
+  "embedded_components {\n"
   "  id: \"camera\"\n"
   "  type: \"camera\"\n"
   "  data: \"aspect_ratio: 1.0\\n"
   "fov: 0.7854\\n"
-  "near_z: 0.1\\n"
+  "near_z: 0.0\\n"
   "far_z: 1000.0\\n"
   "auto_aspect_ratio: 0\\n"
+  "orthographic_projection: 1\\n"
+  "orthographic_zoom: 3.0\\n"
   "\"\n"
   "  position {\n"
   "    x: 0.0\n"
@@ -191,8 +180,8 @@ embedded_instances {
   "}\n"
   ""
   position {
-    x: -480.0
-    y: -320.0
+    x: 0.0
+    y: 0.0
     z: 0.0
   }
   rotation {
