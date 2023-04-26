@@ -11,6 +11,8 @@ use_accelerometer = 0
 [display]
 width = 960
 height = 640
+vsync = 0
+update_frequency = 60
 
 [ios]
 app_icon_120x120 = /assets/app_icons/icon_120.png
@@ -42,6 +44,7 @@ shared_state = 1
 [physics]
 gravity_y = -1000.0
 scale = 0.1
+use_fixed_timestep = 1
 
 [graphics]
 default_texture_min_filter = nearest

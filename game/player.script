@@ -114,7 +114,7 @@ local function decelerate(v, f, dt)
 	end
 end
 
-function update(self, dt)
+function fixed_update(self, dt)
 	-- apply gravity
 	self.velocity.y = self.velocity.y + GRAVITY * dt
 	self.velocity.y = clamp(self.velocity.y, -MAX_FALL_SPEED, MAX_FALL_SPEED)
