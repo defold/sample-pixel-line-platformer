@@ -11,6 +11,10 @@ key_trigger {
   action: "jump"
 }
 key_trigger {
+  input: KEY_UP
+  action: "jump"
+}
+key_trigger {
   input: KEY_X
   action: "fire"
 }
