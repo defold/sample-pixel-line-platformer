@@ -223,8 +223,8 @@ local function jump(self)
 		-- compress and stretch player for visual "juice"
 		squish()
 	-- allow double jump if still moving up
-	elseif not self.double_jump and self.velocity.y > 0 then
-		self.velocity.y = self.velocity.y + DOUBLEJUMP_TAKEOFF_SPEED
+	elseif not self.double_jump then
+		self.velocity.y = DOUBLEJUMP_TAKEOFF_SPEED
 		self.double_jump = true
 	end
 	-- add some particles 
