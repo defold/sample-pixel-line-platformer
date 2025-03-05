@@ -38,10 +38,6 @@ function init(self)
 	-- this lets us handle input in this script
 	msg.post(".", "acquire_input_focus")
 
-	-- activate camera attached to the player collection
-	-- this will send camera updates to the render script
-	msg.post("@render:", "use_camera_projection")
-
 	-- spawn position
 	self.spawn_position = go.get_position()
 	-- player velocity
