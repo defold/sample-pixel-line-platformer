@@ -278,7 +278,7 @@ function on_input(self, action_id, action)
 			abort_jump(self)
 		end
 	elseif action_id == FIRE then
-		if action.released then
+		if action.pressed then
 			fire(self)
 		end
 	end
